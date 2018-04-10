@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { KoersPage } from '../koers/koers';
+import { Firebase } from '@ionic-native/firebase';
 
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-koers',
+  templateUrl: 'koers.html',
 })
-export class HomePage {
+export class KoersPage {
 
-  token: any;
-
-  constructor(public navCtrl: NavController,
-              public firebase: Firebase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public firebase: Firebase) {
 
       this.firebase.getToken()
       .then(token => 
@@ -26,8 +25,5 @@ export class HomePage {
 
   }
 
-  doKoers() {
-    this.navCtrl.push(KoersPage);
-  }
 
 }
