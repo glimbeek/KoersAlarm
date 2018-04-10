@@ -10,6 +10,8 @@ import { Firebase } from '@ionic-native/firebase';
 })
 export class KoersPage {
 
+  token: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public firebase: Firebase) {
 
