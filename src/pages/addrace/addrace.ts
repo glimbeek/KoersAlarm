@@ -20,7 +20,9 @@ export class AddracePage {
   race: Race = {
     name: '',
     country: '',
-    startdate: ''
+    startdate: '',
+    image: '',
+    introtext: ''
   }
 
   constructor(public navCtrl: NavController, 

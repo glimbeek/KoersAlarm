@@ -3,5 +3,7 @@ export interface Race {
     name: string;
     country: string;
     startdate: string;
+    image: string;
+    introtext: string;
     winner?: string;
 }

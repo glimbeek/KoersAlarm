@@ -20,7 +20,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database'
 import { AngularFireAuthModule } from 'angularfire2/auth'
 import { AngularFireAuth } from 'angularfire2/auth';
-import { FIREBASE_CONFIG } from './firebase.credentials';
+import { FIREBASE_CONFIG } from './firebase.credentials'; // This is for webbased testing only
 
 import { SongService } from '../services/songs.service';
 

@@ -16,10 +16,6 @@ export class SongService {
 
     constructor(private db: AngularFireDatabase) {}
 
-    getSongList() {
-        return this.songListRef;
-    }
-
     getRaceList() {
         return this.raceListRef;
     }
@@ -28,12 +24,8 @@ export class SongService {
         return this.stageListRef;
     }
 
-    filterByString(band: string) {
-        return this.db.list('/song-list' , ref => ref.orderByChild('band').equalTo(band)); // https://www.youtube.com/watch?v=uKdqjdzKcQg
-    }
-
-    assembleBandFilteredList(ctxt) {
-        //use filter by string to return all songs ba particular band
+    filterByString(race: string) {
+        return this.db.list('/stage-list' , ref => ref.orderByChild('race').equalTo(race)); // https://www.youtube.com/watch?v=uKdqjdzKcQg
     }
 
     addRace(race: Race) { // paramter song off type Song
@@ -42,25 +34,5 @@ export class SongService {
 
     addStage(stage: Stage) { // paramter song off type Song
         return this.stageListRef.push(stage); // Here we tell FireBase to add an item to the songs table
-    }
-
-    addSong(song: Song) { // paramter song off type Song
-        return this.songListRef.push(song); // Here we tell FireBase to add an item to the songs table
-    }
-
-    addBand(band: Band) { // paramter song off type Song
-        return this.bandListRef.push(band); // Here we tell FireBase to add an item to the bands table
-    }
-
-    getBandList() {
-        return this.bandListRef;
-    }
-
-    editSong(song: Song) {
-        return this.songListRef.update(song.key, song);
-    }
-
-    removeSong(song: Song) {
-        return this.songListRef.remove(song.key);
     }
 }
