@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "540292576821",
+    "firebase_url": "https://koersalarm.firebaseio.com",
+    "project_id": "koersalarm",
+    "storage_bucket": "koersalarm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540292576821:android:ad3cd446e81dde87",
+        "android_client_info": {
+          "package_name": "nl.koersalarm.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540292576821-c788gtf02rk1t6pdja6uvieiqm7gmv63.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHTjdgrOc6eo_A7x9oeBwTpBWz641CZiA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

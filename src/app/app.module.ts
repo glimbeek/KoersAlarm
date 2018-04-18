@@ -7,14 +7,19 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database'
+import { AngularFirestoreModule } from 'angularfire2/firestore'
 import { AngularFireAuthModule } from 'angularfire2/auth'
 import { AngularFireAuth } from 'angularfire2/auth';
+
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database' // For Push Notifications
+import { Firebase } from '@ionic-native/firebase';
+
 import { FIREBASE_CONFIG } from './firebase.credentials'; // This is for webbased testing only
 
 import { SongService } from '../services/songs.service';
 
 import { EmailComposer } from '@ionic-native/email-composer';
+import { FcmProvider } from '../providers/fcm/fcm';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,7 @@ import { EmailComposer } from '@ionic-native/email-composer';
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFirestoreModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,6 +45,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
     AngularFireAuth,
     EmailComposer,
     SongService,
+    Firebase,
+    FcmProvider,
   ]
 })
 export class AppModule {}
