@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SongService } from './../../services/songs.service';
 import { Observable } from 'rxjs/Observable'; // We add this so newly added songs or bands (by other app instances) are shown in this app
-import { Song } from '../../models/song.model';
-import { Band } from '../../models/band.model';
 
 import { Stage } from '../../models/stage.model';
 import { Race } from '../../models/race.model';
