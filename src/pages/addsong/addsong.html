@@ -15,9 +15,10 @@
 
 <ion-content padding>
 
-  <button ion-button block (click)="doAddSong(song)">Add</button>
+  <!-- <button ion-button block (click)="doAddSong(song)">Add Song</button> -->
+  <button ion-button block (click)="doAddStage(stage)">Add Stage</button>
 
-  <ion-item>
+  <!-- <ion-item>
     <ion-label>Band Name</ion-label>
     <ion-input [(ngModel)]="song.band" placeholder="band name..."></ion-input>
   </ion-item>
@@ -35,6 +36,46 @@
   <ion-item>
     <ion-label>Lyrics</ion-label>
     <ion-input [(ngModel)]="song.lyrics" placeholder="lyrics..."></ion-input>
+  </ion-item> -->
+
+  <ion-item>
+    <ion-label>Race Name</ion-label>
+    <ion-input [(ngModel)]="stage.race" placeholder="race name..."></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>Stage Name</ion-label>
+    <ion-input [(ngModel)]="stage.name" placeholder="stage name..."></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Start Date</ion-label>
+    <ion-input [(ngModel)]="stage.startdate" placeholder="start date..."></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Start Route</ion-label>
+    <ion-input [(ngModel)]="stage.startroute" placeholder="Start Route..."></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>End Route</ion-label>
+    <ion-input [(ngModel)]="stage.endroute" placeholder="End Route..."></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Length</ion-label>
+    <ion-input [(ngModel)]="stage.length" placeholder="Length..."></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Type</ion-label>
+    <ion-input [(ngModel)]="stage.type" placeholder="Type..."></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Winner</ion-label>
+    <ion-input [(ngModel)]="stage.winner" placeholder="Winner..."></ion-input>
   </ion-item>
 
 </ion-content>

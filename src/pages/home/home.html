@@ -6,49 +6,143 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar text-center>
     <ion-title>KoersAlarm</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="card-background-page">
 
-  <ion-buttons>
+    <button ion-button navPush="AddracePage">Add Race</button>
+
+  <!-- <ion-buttons>
     <button ion-button navPush="AddsongPage">Add Song</button>
     <button ion-button navPush="RegistedBandPage">Add Band</button>
     <button ion-button navPush="AddSongPage"></button>
-  </ion-buttons>
+  </ion-buttons> -->
 
-  <ion-list>
+  <!-- <ion-list>
     <ion-item>
       <ion-label>Show Songs From Band:</ion-label>
       <ion-select (ionChange)="onContextChange($event)" [(ngModel)]="bands" multiple="false" cancelText="cancel" okText="Show songs from selected">
         <ion-option *ngFor="let band of bandsList$ | async" detail-push>{{band.name}}</ion-option>
       </ion-select>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
-  <ion-list>
+  <!-- <ion-list>
     <ion-list-header>
         Songs:
     </ion-list-header>
-    <ion-item *ngFor="let item of songsList$ | async" detail-push navPush="ViewSongPage"[navParams]="{item:item}"> <!-- We use navParams to "feed in" whatever song is selected -->
+    <ion-item *ngFor="let item of songsList$ | async" detail-push navPush="ViewSongPage"[navParams]="{item:item}">
       {{item.title}}
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
-  <ion-buttons>
+  <button *ngFor="let item of raceList$ | async" detail-push navPush="ViewstagePage"[navParams]="{item:item}">
+    <ion-card>
+
+      <img src="../../assets/imgs/le-tour-de-france.png"/>
+      
+      <ion-card-content>
+        <ion-card-title>le Tour de France</ion-card-title>
+        <p>Intro tekst...</p>
+        <p>Dagen/Uren/Minuten tot de start</p>
+      </ion-card-content>
+
+      <ion-row no-padding>
+        <ion-col text-left>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='star'></ion-icon>
+            Favoriet
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='share-alt'></ion-icon>
+            Delen
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+  </button>
+
+  <button>
+    <ion-card>
+
+      <img src="../../assets/imgs/giro-d-italia.png"/>
+      
+      <ion-card-content>
+        <ion-card-title>Giro D'Italia</ion-card-title>
+        <p>Intro tekst...</p>
+        <p>Dagen/Uren/Minuten tot de start</p>
+      </ion-card-content>
+
+      <ion-row no-padding>
+        <ion-col text-left>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='star'></ion-icon>
+            Favoriet
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='share-alt'></ion-icon>
+            Delen
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+  </button>
+
+  <button>
+    <ion-card>
+
+      <img src="../../assets/imgs/la-vuelta.png"/>
+      
+      <ion-card-content>
+        <ion-card-title>La Vuelta</ion-card-title>
+        <p>Intro tekst...</p>
+        <p>Dagen/Uren/Minuten tot de start</p>
+      </ion-card-content>
+
+      <ion-row no-padding>
+        <ion-col text-left>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='star'></ion-icon>
+            Favoriet
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='share-alt'></ion-icon>
+            Delen
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+  </button>
+
+  <h1>Etappes:</h1>
+  <ion-item *ngFor="let item of stageList$ | async" detail-push navPush="ViewstagePage"[navParams]="{item:item}"> <!-- We use navParams to "feed in" whatever song is selected -->
+    <button ion-button clear>{{item.name}} - {{item.startdate}}</button>      
+  </ion-item>
+
+  <!-- <ion-buttons>
     <button ion-button navPush="LoginPage">
       Login
     </button>
-    <button ion-button (click)="doShowAllSongs()">
+    <button ion-button (click)="doShowAllStages()">
       Show All Songs
     </button>
     <button ion-button navPush="InvitePage">
       Invite
     </button>
-  </ion-buttons>
+  </ion-buttons> -->
 
 </ion-content>

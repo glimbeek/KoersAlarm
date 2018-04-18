@@ -1,10 +1,11 @@
-export interface Etappe {
-    key?: string // The ? in the name means its optional 
+export interface Stage {
+    key?: string; // The ? in the name means its optional 
+    race: string;
     name: string;
-    startdate: Date;
+    startdate: string;
     startroute: string;
     endroute: string;
-    length: number;
+    length: string;
     type: string;
     winner?: string;
 }

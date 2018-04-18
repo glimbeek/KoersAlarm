@@ -13,7 +13,7 @@ import { rootRenderNodes } from '@angular/core/src/view';
 })
 export class MyApp {
   @ViewChild('myNav') nav:NavController
-  public rootPage:string = 'LoginPage';
+  public rootPage:string = 'HomePage';
   // rootPage:any = LoginPage;
 
   constructor(platform: Platform, 
@@ -26,18 +26,18 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
 
-      angularFireAuth.auth.onAuthStateChanged(function(user) {
-        if (user) {
-          this.rootPage = 'HomePage';          
-        }
-        else {
-          this.rootPage = 'LoginPage';
-        }
-      });
+      // angularFireAuth.auth.onAuthStateChanged(function(user) {
+      //   if (user) {
+      //     this.rootPage = 'HomePage';          
+      //   }
+      //   else {
+      //     this.rootPage = 'LoginPage';
+      //   }
+      // });
     });
   }
-  ngOnInit() {
-    this.nav.push(this.rootPage);
-  }
+  // ngOnInit() {
+  //   this.nav.push(this.rootPage);
+  // }
 }
 

@@ -5,6 +5,9 @@ import { Observable } from 'rxjs/Observable'; // We add this so newly added song
 import { Song } from '../../models/song.model';
 import { Band } from '../../models/band.model';
 
+import { Stage } from '../../models/stage.model';
+import { Race } from '../../models/race.model';
+
 /**
  * Generated class for the HomePage page.
  *
@@ -21,29 +24,48 @@ export class HomePage {
 
   songsList$: Observable<Song[]>;
   bandsList$: Observable<Band[]>;
+
+  raceList$: Observable<Race[]>;
+  stageList$: Observable<Stage[]>;
   
   band: Band = {
     name: ''
   }
 
+  tourParam = "le Tour de France";
+  giroParam = "Giro D'Italia"
+  vueltParam = "La Vuelta"
+
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     private songService: SongService) { 
       
-      this.songsList$ = this.songService.getSongList().snapshotChanges().map(changes => {
-      return changes.map( c => ({
-        key: c.payload.key, ...c.payload.val()
-      }));
+      // this.songsList$ = this.songService.getSongList().snapshotChanges().map(changes => {
+      // return changes.map( c => ({
+      //   key: c.payload.key, ...c.payload.val()
+      // }));
+      
+      this.stageList$ = this.songService.getStageList().snapshotChanges().map(changes => {
+        return changes.map( c => ({
+          key: c.payload.key, ...c.payload.val()
+        }));
+
     });
   }
 
   ionViewWillLoad() {
     // Load the bandslist
-    this.bandsList$ = this.songService.getBandList().snapshotChanges().map(changes => {
+    // this.bandsList$ = this.songService.getBandList().snapshotChanges().map(changes => {
+    //   return changes.map( c => ({
+    //     key: c.payload.key, ...c.payload.val()
+    //   }));
+    // });
+    this.raceList$ = this.songService.getRaceList().snapshotChanges().map(changes => {
       return changes.map( c => ({
         key: c.payload.key, ...c.payload.val()
       }));
     });
+
   }
 
   // On filter change
@@ -56,8 +78,16 @@ export class HomePage {
   // }
 
 
-  doShowAllSongs() {
-    this.songsList$ = this.songService.getSongList().snapshotChanges().map(changes => {
+  // doShowAllSongs() {
+  //   this.songsList$ = this.songService.getSongList().snapshotChanges().map(changes => {
+  //     return changes.map( c => ({
+  //       key: c.payload.key, ...c.payload.val()
+  //     }));
+  //   });
+  // }
+
+  doShowAllStages() {
+    this.songsList$ = this.songService.getStageList().snapshotChanges().map(changes => {
       return changes.map( c => ({
         key: c.payload.key, ...c.payload.val()
       }));
