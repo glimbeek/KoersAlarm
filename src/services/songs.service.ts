@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { Song } from '../models/song.model';
-import { Band } from '../models/band.model';
 
 import { Race } from '../models/race.model';
 import { Stage } from '../models/stage.model';
@@ -9,8 +7,6 @@ import { Stage } from '../models/stage.model';
 @Injectable()
 export class SongService {
 
-    private songListRef = this.db.list<Song>('song-list');
-    private bandListRef = this.db.list<Band>('band-list');
     private raceListRef = this.db.list<Race>('race-list');
     private stageListRef = this.db.list<Stage>('stage-list');
 

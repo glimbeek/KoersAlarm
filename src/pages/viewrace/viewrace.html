@@ -9,7 +9,7 @@
 
 <ion-content>
     <h2 padding>Etappes:</h2>
-    <button ion-item text-wrap *ngFor="let item of stageList$ | async" detail-push navPush="ViewstagePage"[navParams]="{item:item}"> <!-- We use navParams to "feed in" whatever stage is selected -->
+    <button ion-item text-wrap *ngFor="let item of stageList$ | async" detail-push navPush="ViewstagePage" [navParams]="{item:item}"> <!-- We use navParams to "feed in" whatever stage is selected -->
       {{item.startdate}}: {{item.startroute}} / {{item.endroute}}
       <ion-icon item-end md="md-arrow-forward"></ion-icon>
     </button>

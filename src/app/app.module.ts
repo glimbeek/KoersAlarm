@@ -4,18 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule, NavController, NavParams } fr
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-/* Pages */
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { KoersPage } from '../pages/koers/koers';
-import { LoginPage } from '../pages/login/login';
-import { RegisterPage } from '../pages/register/register';
-import { ViewsongPage } from '../pages/viewsong/viewsong';
-import { EditsongPage } from '../pages/editsong/editsong';
-import { AddsongPage } from '../pages/addsong/addsong';
 
-/* Providers */
-// import { Firebase } from '@ionic-native/firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database'
 import { AngularFireAuthModule } from 'angularfire2/auth'
