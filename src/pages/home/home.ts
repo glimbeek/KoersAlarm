@@ -47,13 +47,13 @@ export class HomePage {
   }
 
   // On filter change
-  onContextChange(ctxt: string): void  {
-    this.songsList$ = this.songService.assembleBandFilteredList(ctxt).snapshotChanges().map(changes => {
-      return changes.map(c => ({
-        key: c.payload.key, ...c.payload.val()
-      }));
-    });
-  }
+  // onContextChange(ctxt: string): void  {
+  //   this.songsList$ = this.songService.assembleBandFilteredList(ctxt).snapshotChanges().map(changes => {
+  //     return changes.map(c => ({
+  //       key: c.payload.key, ...c.payload.val()
+  //     }));
+  //   });
+  // }
 
 
   doShowAllSongs() {
