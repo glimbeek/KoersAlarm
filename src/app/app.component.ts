@@ -23,14 +23,42 @@ export class MyApp {
               statusBar: StatusBar, 
               splashScreen: SplashScreen,
               private angularFireAuth: AngularFireAuth,
-              public fcm: FcmProvider,
-              public toastCrl: ToastController) {
+              fcm: FcmProvider,
+              toastCtrl: ToastController) {
 
     platform.ready().then(() => {
 
       statusBar.styleDefault();
       splashScreen.hide();
 
+      if (!platform.is('cordova')) {
+        const toast = toastCtrl.create({
+          message: "Not running on a Cordova platform",
+          duration: 3000
+        });
+        toast.present();    
+      }
+      else {
+        const toast = toastCtrl.create({
+          message: "Seems we are running on a Cordova platform",
+          duration: 3000
+        });
+        toast.present(); 
+
+        // Get a FCM token
+        fcm.getToken()
+
+        fcm.listenToNotifications().pipe(
+        tap(msg => {
+          const toast = toastCtrl.create({
+            message: msg.body,
+            duration: 3000
+          });
+          toast.present();
+        })
+        )
+        .subscribe()
+      }
       // Auth bit which we dont use anymore
       // angularFireAuth.auth.onAuthStateChanged(function(user) {
       //   if (user) {
@@ -41,22 +69,10 @@ export class MyApp {
       //   }
       // });
     });
-
   }
 
   ionViewDidLoad() {
-   this.fcm.getToken()
 
-   this.fcm.listenToNotifications().pipe(
-    tap(msg => {
-      const toast = this.toastCrl.create({
-        message: msg.body,
-        duration: 3000
-      });
-      toast.present();
-    })
-   )
-   .subscribe()
   }
 
 }

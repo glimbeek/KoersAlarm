@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Firebase } from '@ionic-native/firebase';
-import { Platform } from 'ionic-angular';
+import { Platform, ToastController } from 'ionic-angular';
 import { AngularFirestore } from 'angularfire2/firestore';
 
 /******
  * SOURCE:
  * https://www.youtube.com/watch?v=SOOjamH1bAA
+ * https://angularfirebase.com/lessons/ionic-native-with-firebase-fcm-push-notifications-ios-android/
  *
  ******/
 
@@ -15,7 +16,8 @@ export class FcmProvider {
   constructor(
     public firebaseNative: Firebase,
     public afs: AngularFirestore,
-    private platform: Platform
+    private platform: Platform,
+    public toastCtrl: ToastController
   ) {}
 
   // Get permission from the user
@@ -34,18 +36,27 @@ export class FcmProvider {
 
     // Web app
     if (!this.platform.is('cordova')) {
-      // We do nothing
+      let toast = this.toastCtrl.create({
+        message: 'We need a cordova platform for this to work',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
     }
 
     return this.saveTokenToFirestore(token)
   }
 
   private saveTokenToFirestore(token) {
-    if (!token) return; // If we don't have a token we just return
+    if (!token) {
+      console.log('No token')
+      return; // If we don't have a token we just return
+    }
+
     const devicesRef = this.afs.collection('devices') // Make a reference to the devices collection in firestore
 
-    // the goal is to send a message to every device is user has registered
-    const docData = {
+    // the goal is to send a message to every device a user has registered
+    const docData = { 
       token,
       userId: 'testUser',
     }

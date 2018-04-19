@@ -13,7 +13,7 @@
 
   <ion-card *ngFor="let race of raceList$ | async">
 
-    <img src="../../assets/imgs/{{race.image}}" detail-push navPush="ViewracePage" [navParams]="{item:race}"/>
+    <img src="./assets/imgs/{{race.image}}" detail-push navPush="ViewracePage" [navParams]="{item:race}"/>
     
     <ion-card-content>
       <ion-card-title>{{race.name}}</ion-card-title>
