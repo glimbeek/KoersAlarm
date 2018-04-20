@@ -21,6 +21,8 @@ import { SongService } from '../services/songs.service';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { FcmProvider } from '../providers/fcm/fcm';
 
+import { LocalNotifications } from '@ionic-native/local-notifications'; 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -47,6 +49,7 @@ import { FcmProvider } from '../providers/fcm/fcm';
     SongService,
     Firebase,
     FcmProvider,
+    LocalNotifications
   ]
 })
 export class AppModule {}

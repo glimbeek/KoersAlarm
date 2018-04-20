@@ -7,7 +7,16 @@ import { AngularFirestore } from 'angularfire2/firestore';
  * SOURCE:
  * https://www.youtube.com/watch?v=SOOjamH1bAA
  * https://angularfirebase.com/lessons/ionic-native-with-firebase-fcm-push-notifications-ios-android/
- *
+ * 
+ * ANDROID:
+ * Had to implement the following "fix" to get it to work:
+ * https://github.com/arnesson/cordova-plugin-firebase/issues/607
+ * Changed the ".\KoersAlarm\plugins\cordova-plugin-firebase\scripts\after_prepare.js" file on line: 28
+ * 
+ * 
+ * IOS:
+ * Still need to enable PUSH NOTIFICIONS in XCODE once we get a Apple Dev Account
+ * 
  ******/
 
 @Injectable()

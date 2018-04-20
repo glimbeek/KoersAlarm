@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { EmailComposer} from '@ionic-native/email-composer';
 
 // Race and stage stuff
 import { SongService } from './../../services/songs.service';
@@ -33,7 +34,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
-    private songService: SongService) {}
+    private songService: SongService,
+    private emailComposer: EmailComposer) {}
 
   ionViewWillLoad() {
 
@@ -43,6 +45,20 @@ export class HomePage {
       }));
     });
 
+  }
+
+  doSendEmail(string) {
+    let email = {
+      to: '',
+      cc: '',
+      attachment: [
+
+      ],
+      subject: 'Het onderwerp' + string,
+      body: 'Het bericht',
+      isHtml: true
+    }
+    this.emailComposer.open(email)
   }
 
 }
