@@ -70,10 +70,11 @@ export class MyApp {
         console.log("Sending a notification: " , notification)
         // this.notifications.push(notification);
 
-        // localNotifications.schedule({
-        //   title: 'Justin Rhyss',
-        //   text: 'Do you want to go see a movie tonight?'     
-        // })
+        localNotifications.schedule({
+          title: 'Justin Rhyss',
+          text: 'Do you want to go see a movie tonight?',
+          attachments: ['./assets/imgs/le-tour-de-france.png'],
+        })
 
 
 
