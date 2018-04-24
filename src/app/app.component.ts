@@ -5,13 +5,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { rootRenderNodes } from '@angular/core/src/view';
 
+import { Observable } from 'rxjs/Observable';
+import { SongService } from './../services/songs.service';
+import { Race } from '../models/race.model';
+
 // Push Notifications Stuff
 import { FcmProvider } from '../providers/fcm/fcm';
 import { tap } from 'rxjs/operators';
-
-// Local Notifications Stuff
-import { LocalNotifications } from '@ionic-native/local-notifications';
-import * as moment from 'moment';
 
 @Component({
   // templateUrl: 'app.html'
@@ -25,13 +25,14 @@ export class MyApp {
 
   // notifications: any[] = [];
 
+  raceList$: Observable<Race[]>;
+
   constructor(platform: Platform, 
               statusBar: StatusBar, 
               splashScreen: SplashScreen,
               private angularFireAuth: AngularFireAuth,
               fcm: FcmProvider,
-              toastCtrl: ToastController,
-              localNotifications: LocalNotifications) {
+              toastCtrl: ToastController) {
 
     platform.ready().then(() => {
 
@@ -58,37 +59,8 @@ export class MyApp {
         )
         .subscribe()
 
-        // Local notifications
-        let notification = {
-          // id: day.dayCode,
-          title: 'Hey!',
-          text: 'You just got notified :)',
-          // at: firstNotificationTime,
-          // every: 'week'
-        };
-
-        console.log("Sending a notification: " , notification)
-        // this.notifications.push(notification);
-
-        localNotifications.schedule({
-          title: 'Justin Rhyss',
-          text: 'Do you want to go see a movie tonight?',
-          attachments: ['./assets/imgs/le-tour-de-france.png'],
-        })
-
-
-
       }
-
-
-
-
-
-
-
-
-
-
+      
       // Auth bit which we dont use anymore
       // angularFireAuth.auth.onAuthStateChanged(function(user) {
       //   if (user) {
